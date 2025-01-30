@@ -1,0 +1,50 @@
+Données quantitative : 
+Croissance, Rentabilité, Endettement, 
+rachat d'actions ou pas, payout ratio (éventuellement), 
+rémunérations en actions.
+
+IQ invest vérifie sur 1, 5 et 10 ans
+Guillaume prends sur 5 ans 
+
+Rentabilité (Retour sur capitaux) : 
+-ROE equity (capitaux propre) fmp ratios / key metrics
+-ROA Assets (actifs totaux) fmp ratios 
+-ROIC Invest Capitals (capitaux propres + dettes long terme) (>20% 1 | >=10% 0.5 | <10% 0) fmp key mertrics
+-ROCE capital employed (actif totaux - dettes courts termes) >15% fmp ratios
+
+IQ invest utilise le ROIC car c'est "le plus conservateur des 4" (+1 si >= 20%; +0.5 si >=10%; 0 si <10%)
+Guillaume utilise ROCE 
+
+Profitabilité:
+Gross margin (CA-cout de prod) (>=50% +1; >=30% +0.5; <30% 0) fmp ratios
+operating margin (gross pofits-operating costs) (>=20% +1; >=10% +0.5; <10 0) fmp ratios
+net margin (operating profits - taxes, interets et amortissements (D&A)) (>20 +1; >10% 0,5; <10 0) fmp ratios
+%capex/operating cash flows (plus c petit mieux c'est) (<20 +1; <40 0.5; >40 0) fmp key mertrics
+Le capex/OCF c'est les dépenses en CAPEX (usines, machines...) sur le cash flow opérationnel mesure si une entreprise à besoins d'investir beaucoup de son cash pour fonctoinner ou non
+FCF margin (>10%)
+vraiment pas sur : (freeCashFlowOperatingCashFlowRatio*operating margin = ) probablement faux 
+
+Iq invest utilise les 4 premiers 
+Guillaume utilise les FCF margins
+
+Croissance:  
+Croissance du CA (Guillaume: >10%) (IQInvest: >10% 1 | >5% 0.5 | <5% 0)
+Croissance des FCF (Guillaume: >10%) (IQInvest: >10% 1 | >5% 0.5 | <5% 0) fcf per share fmp ratios
+
+Endettement:
+Dette Net/FCF (plus petit c le mieux) (<3) 
+Dettes Totales/Ebitda (+ petit = mieux) (1,5 +1 | 2,5 0.5 | >2,5 0)
+payout ratio (selon IQInvest) fmp ratios
+
+total debt / net debt : fmp balance sheet
+fcf : fmp cash flow statement 
+
+Evolution du Nb d'actions en circulations (=<0)
+
+
+
+Pour la valorisation de l'entreprise :
+Guillaume utilise (les 3 disponibles sur fmp ratios): 
+FCF / shares
+Fcf growth
+ratio price to fcf 
