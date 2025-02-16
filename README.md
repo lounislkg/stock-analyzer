@@ -17,59 +17,48 @@ bun dev
 
 ## 📌 Project Description
 This project performs a fundamental analysis of companies by assigning a score based on various financial criteria. The objective is to provide an objective and comparative evaluation of companies based on their past and current performance.
+## 📝 Acknowledgments & Credits
+The analysis is based on the methodologies of **IQ Invest** and **Guillaume**, two financial youtubers who prioritize different metrics in their evaluations.
 
 ## 📊 Data Used
 The analysis is based on quantitative data and considers several evaluation axes:
-
 ### 1️⃣ **Profitability (Return on Capital)**
-- **ROE (Return on Equity)** - Shareholders' equity
-- **ROA (Return on Assets)** - Total assets
-- **ROIC (Return on Invested Capital)** - Shareholders' equity + Long-term debt
-  - IQ Invest: **ROIC** is considered the most conservative of the four
-    - `>=20% → +1 | >=10% → +0.5 | <10% → 0`
+- **ROIC (Return on Invested Capital)**
+  - **1 Year**: `>= 20% → +1 | >= 10% → +0.5 | < 10% → 0`
+  - **5 Years**: `>= 20% → +1 | >= 10% → +0.5 | < 10% → 0`
 - **ROCE (Return on Capital Employed)** - Total assets - Short-term debt
-  - Guillaume uses **ROCE** as the primary indicator
 
 ### 2️⃣ **Profitability**
 - **Gross Margin** `(Revenue - Cost of production)`
-  - `>=50% → +1 | >=30% → +0.5 | <30% → 0`
+  - `>= 50% → +1 | >= 30% → +0.5 | < 30% → 0`
 - **Operating Margin** `(Gross Profits - Operating Costs)`
-  - `>=20% → +1 | >=10% → +0.5 | <10% → 0`
+  - `>= 20% → +1 | >= 10% → +0.5 | < 10% → 0`
 - **Net Margin** `(Operating Profits - Taxes, Interest, Depreciation & Amortization)`
-  - `>=20% → +1 | >=10% → +0.5 | <10% → 0`
-- **Capex/Operating Cash Flows** `(FCF/OCF - Capex expenditures)`
-  - `<=20% → +1 | <=40% → +0.5 | >40% → 0`
+  - `>= 20% → +1 | >= 10% → +0.5 | < 10% → 0`
 - **FCF Margin** (Free Cash Flow / Revenue)
-  - IQ Invest uses the first four criteria
-  - Guillaume prioritizes **FCF Margin**
+  - `>= 15% → +1 | >= 7% → +0.5 | < 7% → 0`
+- **Capex/Operating Cash Flows** `(FCF/OCF - Capex expenditures)`
+  - `<= 20% → +1 | <= 40% → +0.5 | > 40% → 0`
 
 ### 3️⃣ **Growth**
-- **Revenue Growth** (Revenue Per Share)
-  - IQ Invest: `>=10% → +1 | >=5% → +0.5 | <5% → 0`
-  - Guillaume: `>=10% → +1`
-- **FCF Growth** (FCF Per Share)
-  - IQ Invest: `>=10% → +1 | >=5% → +0.5 | <5% → 0`
-  - Guillaume: `>=10% → +1`
+- **Revenue Growth (1 Year & 5 Years)**
+  - `>= 10% → +1 | >= 5% → +0.5 | < 5% → 0`
+- **FCF Growth (1 Year & 5 Years)**
+  - `>= 10% → +1 | >= 5% → +0.5 | < 5% → 0`
+- **EPS Growth (1 Year & 5 Years)**
+  - `>= 10% → +1 | >= 5% → +0.5 | < 5% → 0`
 
 ### 4️⃣ **Debt**
-- **Net Debt/FCF**
-  - Lower is better (`<3` recommended)
 - **Total Debt/EBITDA**
-  - `<=1.5 → +1 | <=2.5 → +0.5 | >2.5 → 0`
+  - `<= 1.5 → +1 | <= 3 → +0.5 | > 3 → 0`
 - **Payout Ratio**
-- **Evolution of Outstanding Shares**
-  - Stable or decreasing (`=0 or negative` recommended)
-
-### 5️⃣ **Company Valuation**
-- **FCF / Shares**
-- **FCF Growth**
-- **Price to FCF Ratio**
-  - Guillaume uses these three metrics for company valuation
+  - `< 30% and > 10% → +1 | < 10% → +0.5 | > 30% → 0`
+- **Outstanding Shares Growth**
+  - `< 0 → +1`
 
 ## 🏆 Scoring System
 Each company is rated according to a **point system** based on the above criteria.
 
-## 📝 Acknowledgments & Credits
 This project is inspired by the analysis methodologies of:
 - **IQ Invest**, which prioritizes **ROIC**, **operating margins**, and **long-term growth**.
 - **Guillaume**, who emphasizes **ROCE**, **FCF Margins**, and **valuation via FCF per share and Price to FCF**.
@@ -100,4 +89,5 @@ This project is inspired by the analysis methodologies of:
 ---
 
 This project is under **active development**. Feel free to propose improvements or contribute! 📈
+
 

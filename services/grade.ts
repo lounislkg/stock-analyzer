@@ -134,8 +134,10 @@ export const computeGrade = async (
 	const payoutRatio = Math.round(ratios.payoutRatios[4] * 100) / 100;
 	const weightedAverageShsOutGrowth = ratios.weightedAverageShsOutGrowth;
 	maxGrade += 2;
-	if (payoutRatio < 0.6) {
+	if (payoutRatio < 0.3 && payoutRatio > 0.1) {
 		grade += 1;
+	} else if (payoutRatio < 0.1) {
+		grade += 0.5;
 	}
 	if (weightedAverageShsOutGrowth < 0) {
 		grade += 1;
