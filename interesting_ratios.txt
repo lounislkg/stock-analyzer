@@ -51,16 +51,3 @@ ratio price to fcf
 
 
 ______________________
-
-Interesting info on finnhub : 
-peers https://finnhub.io/api/v1/stock/peers?symbol=AAPL&token=cuf5k9hr01qno7m4vtu0cuf5k9hr01qno7m4vtug
-
-{Array.isArray(item)
-									? Object.keys(item[0]).map((key, i) => <td key={i}>{key}</td>)
-									: null}
-								{!Array.isArray(item) && item !== undefined
-									? Object.keys(item as Profile | Price).map((key, i) => (
-											<td key={i}>{key}</td>
-										))
-									: null}
-

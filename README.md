@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fundamental Analysis - Financial Evaluation Project
 
 ## Getting Started
 
@@ -14,23 +14,90 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📌 Project Description
+This project performs a fundamental analysis of companies by assigning a score based on various financial criteria. The objective is to provide an objective and comparative evaluation of companies based on their past and current performance.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📊 Data Used
+The analysis is based on quantitative data and considers several evaluation axes:
 
-## Learn More
+### 1️⃣ **Profitability (Return on Capital)**
+- **ROE (Return on Equity)** - Shareholders' equity
+- **ROA (Return on Assets)** - Total assets
+- **ROIC (Return on Invested Capital)** - Shareholders' equity + Long-term debt
+  - IQ Invest: **ROIC** is considered the most conservative of the four
+    - `>=20% → +1 | >=10% → +0.5 | <10% → 0`
+- **ROCE (Return on Capital Employed)** - Total assets - Short-term debt
+  - Guillaume uses **ROCE** as the primary indicator
 
-To learn more about Next.js, take a look at the following resources:
+### 2️⃣ **Profitability**
+- **Gross Margin** `(Revenue - Cost of production)`
+  - `>=50% → +1 | >=30% → +0.5 | <30% → 0`
+- **Operating Margin** `(Gross Profits - Operating Costs)`
+  - `>=20% → +1 | >=10% → +0.5 | <10% → 0`
+- **Net Margin** `(Operating Profits - Taxes, Interest, Depreciation & Amortization)`
+  - `>=20% → +1 | >=10% → +0.5 | <10% → 0`
+- **Capex/Operating Cash Flows** `(FCF/OCF - Capex expenditures)`
+  - `<=20% → +1 | <=40% → +0.5 | >40% → 0`
+- **FCF Margin** (Free Cash Flow / Revenue)
+  - IQ Invest uses the first four criteria
+  - Guillaume prioritizes **FCF Margin**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3️⃣ **Growth**
+- **Revenue Growth** (Revenue Per Share)
+  - IQ Invest: `>=10% → +1 | >=5% → +0.5 | <5% → 0`
+  - Guillaume: `>=10% → +1`
+- **FCF Growth** (FCF Per Share)
+  - IQ Invest: `>=10% → +1 | >=5% → +0.5 | <5% → 0`
+  - Guillaume: `>=10% → +1`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4️⃣ **Debt**
+- **Net Debt/FCF**
+  - Lower is better (`<3` recommended)
+- **Total Debt/EBITDA**
+  - `<=1.5 → +1 | <=2.5 → +0.5 | >2.5 → 0`
+- **Payout Ratio**
+- **Evolution of Outstanding Shares**
+  - Stable or decreasing (`=0 or negative` recommended)
 
-## Deploy on Vercel
+### 5️⃣ **Company Valuation**
+- **FCF / Shares**
+- **FCF Growth**
+- **Price to FCF Ratio**
+  - Guillaume uses these three metrics for company valuation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏆 Scoring System
+Each company is rated according to a **point system** based on the above criteria.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Acknowledgments & Credits
+This project is inspired by the analysis methodologies of:
+- **IQ Invest**, which prioritizes **ROIC**, **operating margins**, and **long-term growth**.
+- **Guillaume**, who emphasizes **ROCE**, **FCF Margins**, and **valuation via FCF per share and Price to FCF**.
+
+## 🚀 How to Contribute?
+1. Clone the repository:
+   ```sh
+   git clone git@github.com:your_username/repository_name.git
+   ```
+2. Create a new branch:
+   ```sh
+   git checkout -b new_feature
+   ```
+3. Add your modifications:
+   ```sh
+   git add .
+   ```
+4. Commit your changes:
+   ```sh
+   git commit -m "Added a new metric for analysis"
+   ```
+5. Push your changes:
+   ```sh
+   git push origin new_feature
+   ```
+6. Create a **Pull Request** on GitHub 🚀
+
+---
+
+This project is under **active development**. Feel free to propose improvements or contribute! 📈
+
