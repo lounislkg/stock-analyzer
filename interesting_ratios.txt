@@ -1,7 +1,7 @@
 Données quantitative : 
 Croissance, Rentabilité, Endettement, 
 rachat d'actions ou pas, payout ratio (éventuellement), 
-rémunérations en actions.
+rémunérations en actions. (stock based compensation) fmp cash flow statement
 
 IQ invest vérifie sur 1, 5 et 10 ans
 Guillaume prends sur 5 ans 
@@ -21,14 +21,14 @@ operating margin (gross pofits-operating costs) (>=20% +1; >=10% +0.5; <10 0) fm
 net margin (operating profits - taxes, interets et amortissements (D&A)) (>20 +1; >10% 0,5; <10 0) fmp ratios
 %capex/operating cash flows (plus c petit mieux c'est) (<20 +1; <40 0.5; >40 0) fmp key mertrics
 Le capex/OCF c'est les dépenses en CAPEX (usines, machines...) sur le cash flow opérationnel mesure si une entreprise à besoins d'investir beaucoup de son cash pour fonctoinner ou non
-FCF margin (>10%)
-vraiment pas sur : (freeCashFlowOperatingCashFlowRatio*operating margin = ) probablement faux 
+FCF margin (>10%) 
+fcf per share / revenu per shares fmp key metrics
 
 Iq invest utilise les 4 premiers 
 Guillaume utilise les FCF margins
 
 Croissance:  
-Croissance du CA (Guillaume: >10%) (IQInvest: >10% 1 | >5% 0.5 | <5% 0)
+Croissance du CA (Guillaume: >10%) (IQInvest: >10% 1 | >5% 0.5 | <5% 0) revenu per share fmp key metrics
 Croissance des FCF (Guillaume: >10%) (IQInvest: >10% 1 | >5% 0.5 | <5% 0) fcf per share fmp ratios
 
 Endettement:
@@ -48,3 +48,19 @@ Guillaume utilise (les 3 disponibles sur fmp ratios):
 FCF / shares
 Fcf growth
 ratio price to fcf 
+
+
+______________________
+
+Interesting info on finnhub : 
+peers https://finnhub.io/api/v1/stock/peers?symbol=AAPL&token=cuf5k9hr01qno7m4vtu0cuf5k9hr01qno7m4vtug
+
+{Array.isArray(item)
+									? Object.keys(item[0]).map((key, i) => <td key={i}>{key}</td>)
+									: null}
+								{!Array.isArray(item) && item !== undefined
+									? Object.keys(item as Profile | Price).map((key, i) => (
+											<td key={i}>{key}</td>
+										))
+									: null}
+

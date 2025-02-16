@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--foreground);
+    color: var(--background);
+    overflow: hidden; 
+    white-space: normal; 
+    word-wrap: break-word;
+}
+
+.card h3 {
+    width: 100%;
+    text-align: center;
+}
+.red {
+    background-color: #f08989;
+}
+
+.green {
+    background-color: #7de97d;
+}

@@ -1,1 +1,19 @@
 /*Il s'agit d'un mondule CSS ça permet d'encapsuler / d'isoler le css de ce code du css global donc le CSS écrit ici ne sera pas commun aux reste du css ecrit dans les fichiers .css*/
+.cardContainer {
+	display: grid;
+	padding: 1rem;
+	grid-auto-rows: minmax(0, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 1rem;
+	justify-content: space-around;
+}
+.quantitative_table {
+	margin: 1rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+.gradeHeader {
+	margin: 1rem;
+}

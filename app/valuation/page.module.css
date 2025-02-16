@@ -1,0 +1,113 @@
+.main {
+	margin-inline: 10px;
+}
+
+.main .top {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.top button {
+	margin-left: 2rem;
+}
+
+.main .top button {
+	background-color: var(--header);
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 5px;
+	border: 2px solid var(--header);
+	cursor: pointer;
+	transition: 0.3s;
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.main .top button:hover {
+	background-color: var(--background);
+}
+.table {
+	border-collapse: collapse;
+	border-radius: 5px;
+	border: 1px solid var(--header);
+}
+.table th {
+	background-color: var(--header);
+	color: white;
+	padding: 1rem;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.table td {
+	text-align: center;
+}
+
+.table tr:nth-child(even) {
+	background-color: grey;
+}
+
+.table tr:nth-last-child(1) {
+	background-color: var(--header);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	margin-left: 2rem;
+	margin-top: 1rem;
+}
+.form label {
+	margin-bottom: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.form label input {
+	margin: 0 0.5rem;
+	padding: 0.5rem;
+	border-radius: 5px;
+	border: 1px solid var(--header);
+}
+.form .floating_help {
+	position: absolute;
+	opacity: 0;
+	transition: 0.3s;
+	background-color: rgba(0, 0, 0, 0.8);
+	transform: translateX(100%);
+	right: 0;
+}
+.form label:hover .floating_help,
+.form label:focus-within .floating_help {
+	opacity: 1;
+	padding: 0.5rem;
+	border-radius: 5px;
+}
+.results_table {
+	margin: 1rem;
+}
+
+.results_table {
+	border-collapse: collapse;
+	border-radius: 5px;
+	border: 1px solid var(--header);
+}
+.results_table th {
+	background-color: var(--header);
+	color: white;
+	padding: 1rem;
+	border: 1px solid black;
+}
+
+.results_table td {
+	text-align: center;
+	border: 1px solid var(--header);
+	padding: 0.5rem;
+}
+.red {
+	color: red;
+}
+.green {
+	color: green;
+}
