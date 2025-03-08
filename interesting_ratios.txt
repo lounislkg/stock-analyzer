@@ -51,3 +51,50 @@ ratio price to fcf
 
 
 ______________________
+
+Analyse fondamentale permet de :
+-Comprendre le buiness model
+-Avantages compétitifs
+-Concurents
+-Management (voir linkedin des managers eventuellement) 
+
+Sources d'informations: 
+- Site internet investor relations de l'entreprises (qui regroupe les documents nescessaire)
+Voir 10-k (rapport annuel) et 10-Q (rapport trimestriel) avec les sections:
+Business et Risk factors (éventuellement dmd a chatgpt/notebooklm de le résumer)
+
+-Analyse morningstart (IBKR)
+-zone bourse 
+-ChatGPT
+-taper le nom de la société + market shares
+-taper le domaine de la société + market growth / + ecosystem 
+-Avis sur internet (à regarder en dernier pour confirmer ou infirmer ses hypothèses)
+
+Analytse SWOT essayer de trouvers 3 arg marjeur par catégorie 
+            pour        contre
+internal: Strengths, Weaknesses
+External: Opportunities, Threats
+
+Checklist fondamentale:  
+Toujours répondre plutot non qui oui.
+10 questions. +2 si oui, 0 si non. Eviter les je ne sais pas car ça veut dire qu'on a pas assez creuser le sujet. Essayer d'acheter des entreprises qui ont au moins 12/20. En dessous c'est juste (attention c'est vraiment indicatif et très subjectif).
+
+Produits:
+-Revenus prédicitble ?
+-Resistent aux changements (risque de disruption) ?
+-Score de prédictibilité de l'entreprise ? (GuruFocus) mesuré de 1 à 100 (plus c'est haut mieux c'est)
+-Fort potentiel de croissance ? (marché en croissance, entreprise en croissance)
+
+Management:
+-Allocation de capital judicieuse ? (Standar = non, Exemplaire = oui)
+-Management compétent par le passé ? 
+-Management skin in the Game ? (actions de l'entreprise / famille a la tete de l'entreprise)
+-Rachat d'action régulier ? (si oui c'est bon signe)
+
+Moat:
+- Note de morning star ? MOAT + croissance du moat (voir IBKR morningstar's report) Large/Narrow/No Moat
+Déterminer le type de moat (économies d'échelle, switching costs, réseau d'effet, marché efficient (entrée de nouveau concurents presque impossible car marché oligopolistique/ régulé comme la FDJ ou les ligues de sports, chemins de fer), avantage de différentiation : actif intangibles (marque, brevet, secret de fabrication, réseau de distribution, etc))
+-leader sur son marché ? (part de marché)
+-resiste a la concurence ? (marché en croissance, concurence faible)
+
+

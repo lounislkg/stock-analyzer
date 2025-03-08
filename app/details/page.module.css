@@ -1,0 +1,26 @@
+.tableContainer {
+	width: 100%;
+	/*overflow-y: auto;*/
+}
+
+.tableContainer .tables {
+	overflow-y: auto;
+}
+
+.tableContainer table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.selected {
+	background-color: var(--header);
+}
+
+.tableContainer table th,
+.tableContainer table td {
+	border: 1px solid black;
+	padding: 8px;
+}
+
+.tableContainer table th {
+	background-color: var(--header);
+}
