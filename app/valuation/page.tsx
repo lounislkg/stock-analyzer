@@ -30,6 +30,32 @@ export default function Calculator() {
 	const [fair_prices, setFair_prices] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
 	const [margin_safety, setMargin_safety] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
 
+	const processInputs = (elem: React.ChangeEvent<HTMLInputElement>) => {
+		let input = elem.target.value;
+		try {
+			if (input.match(/[^0-9.,]/)) {
+				throw new Error("Please enter a valid number");
+			}
+			if (input === "") {
+				return 0;
+			}
+			if (input.includes(",")) {
+				input = input.replace(",", ".");
+			}
+			const number = parseFloat(input);
+			if (isNaN(number)) {
+				throw new Error("Please enter a valid number");
+			}
+			return number;
+		} catch (e) {
+			if (e === "Please enter a valid number") {
+				elem.target.style.border = "1px solid red";
+			} else {
+				console.error(e);
+			}
+		}
+		return 0;
+	};
 	useEffect(() => {
 		const calculateResults = () => {
 			const valueOfStock =
@@ -161,7 +187,7 @@ export default function Calculator() {
 						<input
 							type="number"
 							value={fcf_per_share}
-							onChange={(e) => setFcf_per_share(parseFloat(e.target.value))}
+							onChange={(e) => setFcf_per_share(processInputs(e))}
 						/>
 					</label>
 					<label>
@@ -172,7 +198,7 @@ export default function Calculator() {
 						<input
 							type="number"
 							value={fcf_growth}
-							onChange={(e) => setFcf_growth(parseFloat(e.target.value))}
+							onChange={(e) => setFcf_growth(processInputs(e))}
 						/>
 					</label>
 					<label>
@@ -183,7 +209,7 @@ export default function Calculator() {
 						<input
 							type="number"
 							value={price_to_fcf}
-							onChange={(e) => setPrice_to_fcf(parseFloat(e.target.value))}
+							onChange={(e) => setPrice_to_fcf(processInputs(e))}
 						/>
 					</label>
 					<label>
@@ -195,7 +221,7 @@ export default function Calculator() {
 						<input
 							type="number"
 							value={years}
-							onChange={(e) => setYears(parseFloat(e.target.value))}
+							onChange={(e) => setYears(processInputs(e))}
 						/>
 					</label>
 					<label>
@@ -206,7 +232,7 @@ export default function Calculator() {
 						<input
 							type="number"
 							value={initial_value}
-							onChange={(e) => setInitial_value(parseFloat(e.target.value))}
+							onChange={(e) => setInitial_value(processInputs(e))}
 						/>
 					</label>
 				</form>
