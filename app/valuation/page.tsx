@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { useCompanyStore } from "@/store/useCompanyStore";
 import {
@@ -11,6 +10,7 @@ import {
 import { getRatios } from "@/services/companyService";
 import styles from "./page.module.css";
 import { RawDatas } from "@/utils/dataDescription";
+import { type savedElem } from "../watchlist/page";
 
 export default function Calculator() {
 	// data to help user to input the data
@@ -23,6 +23,8 @@ export default function Calculator() {
 	const [price_to_fcf, setPrice_to_fcf] = useState<number>(0);
 	const [years, setYears] = useState<number>(0);
 	const [initial_value, setInitial_value] = useState<number>(0);
+	const [targetedPrice, setTargetedPrice ]= useState<number>(0);
+
 
 	// data calculated by the app
 	const [stockValue, setStockValue] = useState(0);
@@ -61,9 +63,9 @@ export default function Calculator() {
 			const valueOfStock =
 				Math.round(
 					fcf_per_share *
-						Math.pow(1 + fcf_growth / 100, years) *
-						price_to_fcf *
-						100,
+					Math.pow(1 + fcf_growth / 100, years) *
+					price_to_fcf *
+					100,
 				) / 100;
 			const cagrValue =
 				Math.round(
@@ -92,10 +94,15 @@ export default function Calculator() {
 	}, [fcf_per_share, fcf_growth, price_to_fcf, years, initial_value]);
 	useEffect(() => {
 		if (data) {
-			computeValuationRatio(data).then((ratios) => {
+			computeValuationRatio(data).then((ratios: valuationRatios) => {
 				setMetrics(ratios);
 				if (data[3].c !== undefined) {
 					setInitial_value(data[3].c);
+				}
+				if (ratios[0]) {
+					if (ratios[0].FCF_per_share) {
+						setFcf_per_share(ratios[0].FCF_per_share)
+					}
 				}
 			});
 		}
@@ -108,6 +115,36 @@ export default function Calculator() {
 		setData([...data.slice(0, 5), [...response]] as RawDatas);
 	};
 
+	const handleSavePredictions = async (e) => {
+		if (data) {
+			const itemToSave : savedElem = {
+				ticker: data[0][0].symbol,
+				target_price: targetedPrice,
+				predictions: {
+					fcf_per_share: fcf_per_share,
+					fcf_growth: fcf_growth,
+					price_to_fcf: price_to_fcf,
+					years: years,
+					initial_value: initial_value
+				}
+			}
+			const storage = localStorage.getItem("watchlist");
+			if (storage) {
+				const saved = JSON.parse(storage) as savedElem[];
+				saved.push(itemToSave);
+				localStorage.setItem("watchlist", JSON.stringify(saved));
+			} else {
+				localStorage.setItem("watchlist", JSON.stringify([itemToSave]));
+			}
+		}
+		e.target.style.backgroundColor = "green";
+		e.target.innerHTML = "Saved";
+		setTimeout(() => {
+			e.target.style.backgroundColor = "var(--header)";
+			e.target.innerHTML = "Save to Watchlist";	
+		}, 2000);
+	}
+
 	console.log("metrics", metrics);
 	if (data && data[5] !== undefined) {
 		console.log("data[5]", data[5]);
@@ -117,7 +154,7 @@ export default function Calculator() {
 			<div className={styles.top}>
 				<h1>Stock Valuation Calculator</h1>
 				{/* eslint-disable-next-line */}
-				<button onClick={(e) => handleExtendedPrices()}>
+				<button className={styles.button_big} onClick={(e) => handleExtendedPrices()}>
 					Extended Metrics
 				</button>
 			</div>
@@ -130,8 +167,8 @@ export default function Calculator() {
 								<tr>
 									{metrics[0]
 										? Object.keys(metrics[0])
-												.reverse()
-												.map((item, index) => <th key={index}>{item}</th>)
+											.reverse()
+											.map((item, index) => <th key={index}>{item}</th>)
 										: null}
 								</tr>
 							</thead>
@@ -237,21 +274,29 @@ export default function Calculator() {
 					</label>
 				</form>
 			</div>
-			<div>
+			<div className="valuation_results">
 				<h2>Results</h2>
 				{cagr && stockValue && fair_prices && margin_safety ? (
 					<>
-						<p>
-							<strong>Stock Value: {stockValue} </strong>
-						</p>
-						<p>
-							{cagr > 10 ? (
-								<strong className={styles.green}>CAGR: {cagr}%</strong>
-							) : (
-								<strong className={styles.red}>CAGR: {cagr}%</strong>
-							)}
-						</p>
-
+						<div className={styles.main_infos}>
+							<div>
+								<p>
+									<strong>Stock Value: {stockValue} </strong>
+								</p>
+								<p>
+									{cagr > 10 ? (
+										<strong className={styles.green}>CAGR: {cagr}%</strong>
+									) : (
+										<strong className={styles.red}>CAGR: {cagr}%</strong>
+									)}
+								</p>
+							</div>
+							<div>
+								<button className={styles.button_big} onClick={(e) => handleSavePredictions(e)}>
+									Save to Watchlist
+								</button>
+							</div>
+						</div>
 						<table className={styles.results_table}>
 							<thead>
 								<tr>

@@ -11,7 +11,7 @@
 	margin-left: 2rem;
 }
 
-.main .top button {
+.button_big {
 	background-color: var(--header);
 	color: white;
 	padding: 1rem 2rem;
@@ -23,9 +23,11 @@
 	font-size: 1.1rem;
 }
 
-.main .top button:hover {
+.button_big:hover {
 	background-color: var(--background);
 }
+
+
 .table {
 	border-collapse: collapse;
 	border-radius: 5px;
@@ -110,4 +112,12 @@
 }
 .green {
 	color: green;
+}
+.valuation_results button {
+	margin: 1rem;
+}
+
+.main_infos {
+	display: flex;
+	justify-content: space-around;
 }

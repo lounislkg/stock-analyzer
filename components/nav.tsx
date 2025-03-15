@@ -17,6 +17,9 @@ export default function Nav() {
 				<li className={style.navItem}>
 					<Link href="/fundamentals">Fundamentals</Link>
 				</li>
+				<li className={style.navItem}>
+					<Link href="/watchlist">Watchlist</Link>
+				</li>
 			</ul>
 		</nav>
 	);

@@ -7,23 +7,30 @@ import { useCompanyStore } from "@/store/useCompanyStore";
 
 export default function SearchCompany() {
 	const [ticker, setTicker] = useState(""); // Stocke le ticker entré par l’utilisateur
+	const [finalTicker, setfinalTicker] = useState(""); // Stocke le ticker entré par l’utilisateur
 	const { setData } = useCompanyStore(); // Accès au store Zustand
 
 	// Utilisation de React Query pour récupérer les données
-	const { data, isLoading, error, refetch } = useQuery({
-		queryKey: ["company", ticker], // Clé unique pour le cache
-		queryFn: () => fetchCompanyData(ticker),
-		enabled: false, // Désactivé au début, on déclenche avec `refetch`
-	});
+	const { data, isLoading, error, refetch } = useQuery(
+		{
+			queryKey: ['company', finalTicker],
+			queryFn: () => {
+				fetchCompanyData(finalTicker).then((result) => setData(result.data))
+			},
+			enabled: !!finalTicker,
+			
+		}
+	);
 
 	const handleSearch = async () => {
 		if (ticker === "") {
 			console.log("ticker is empty");
 			return;
 		}
-		refetch().then((result) => {
+		setfinalTicker(ticker);
+		/* refetch().then((result) => {
 			setData(result.data);
-		});
+		}); */
 	};
 
 	return (

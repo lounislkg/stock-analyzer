@@ -12,9 +12,9 @@ const items = [
 			},
 			{
 				id: "resistant-to-change",
-				label: "Disruption risk?",
+				label: "No Disruption risk?",
 				tooltip:
-					"Is it possible that the company gets disrupted by a new technology? ",
+					"Isn't it possible that the company gets disrupted by a new technology? ",
 			},
 			{
 				id: "predictability-score",
