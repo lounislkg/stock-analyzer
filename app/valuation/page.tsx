@@ -23,7 +23,7 @@ export default function Calculator() {
 	const [price_to_fcf, setPrice_to_fcf] = useState<number>(0);
 	const [years, setYears] = useState<number>(0);
 	const [initial_value, setInitial_value] = useState<number>(0);
-	const [targetedPrice, setTargetedPrice ]= useState<number>(0);
+	const [targetedPrice, setTargetedPrice] = useState<number>(0);
 
 
 	// data calculated by the app
@@ -111,13 +111,12 @@ export default function Calculator() {
 	const handleExtendedPrices = async () => {
 		if (!data) return;
 		const response = await getRatios(data[0][0].symbol);
-		console.log("response", response);
 		setData([...data.slice(0, 5), [...response]] as RawDatas);
 	};
 
 	const handleSavePredictions = async (e) => {
 		if (data) {
-			const itemToSave : savedElem = {
+			const itemToSave: savedElem = {
 				ticker: data[0][0].symbol,
 				target_price: targetedPrice,
 				predictions: {
@@ -141,14 +140,10 @@ export default function Calculator() {
 		e.target.innerHTML = "Saved";
 		setTimeout(() => {
 			e.target.style.backgroundColor = "var(--header)";
-			e.target.innerHTML = "Save to Watchlist";	
+			e.target.innerHTML = "Save to Watchlist";
 		}, 2000);
 	}
 
-	console.log("metrics", metrics);
-	if (data && data[5] !== undefined) {
-		console.log("data[5]", data[5]);
-	}
 	return (
 		<div className={styles.main}>
 			<div className={styles.top}>
@@ -264,7 +259,7 @@ export default function Calculator() {
 					<label>
 						Initial Value
 						<span className={styles.floating_help}>
-							The current value of the stock
+							The current value of the stock or the price you'd like to buy it.
 						</span>
 						<input
 							type="number"
@@ -290,11 +285,6 @@ export default function Calculator() {
 										<strong className={styles.red}>CAGR: {cagr}%</strong>
 									)}
 								</p>
-							</div>
-							<div>
-								<button className={styles.button_big} onClick={(e) => handleSavePredictions(e)}>
-									Save to Watchlist
-								</button>
 							</div>
 						</div>
 						<table className={styles.results_table}>
@@ -327,7 +317,29 @@ export default function Calculator() {
 							</tbody>
 						</table>
 					</>
-				) : null}
+				) : 
+					(
+						<p>
+							Fill the form above to get the results
+						</p>
+					)
+				}
+			</div>
+			<div>
+				<h2>Watchlist</h2>
+				<div>
+					<label className={styles.targetPrice}>
+						<span>Target Price </span>
+						<span className={styles.floating_help}>
+							The price you expect the stock to reach.
+							It will be saved in your watchlist
+						</span>
+						<input type="text" placeholder="Target Price" name="targetPrice" onChange={(e)=>setTargetedPrice(processInputs(e))} />
+					</label>
+					<button className={styles.button_big} onClick={(e) => handleSavePredictions(e)}>
+						Save to Watchlist
+					</button>
+				</div>
 			</div>
 		</div>
 	);

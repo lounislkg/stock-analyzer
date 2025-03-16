@@ -1,5 +1,6 @@
 .main {
 	margin-inline: 10px;
+	margin-bottom: 3rem;
 }
 
 .main .top {
@@ -8,6 +9,7 @@
 }
 
 .top button {
+	width: max(fit-content, 10%);
 	margin-left: 2rem;
 }
 
@@ -32,13 +34,14 @@
 	border-collapse: collapse;
 	border-radius: 5px;
 	border: 1px solid var(--header);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 .table th {
 	background-color: var(--header);
 	color: white;
 	padding: 1rem;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	
 }
 
 .table td {
@@ -60,19 +63,23 @@
 	margin-left: 2rem;
 	margin-top: 1rem;
 }
-.form label {
+.form label, .targetPrice {
 	margin-bottom: 0.5rem;
 	display: flex;
 	justify-content: space-between;
 	position: relative;
 }
-.form label input {
+.form label input, .targetPrice input {
 	margin: 0 0.5rem;
 	padding: 0.5rem;
 	border-radius: 5px;
 	border: 1px solid var(--header);
 }
-.form .floating_help {
+.targetPrice {
+	display: block;
+	width: fit-content;
+}
+.floating_help {
 	position: absolute;
 	opacity: 0;
 	transition: 0.3s;
@@ -80,8 +87,8 @@
 	transform: translateX(100%);
 	right: 0;
 }
-.form label:hover .floating_help,
-.form label:focus-within .floating_help {
+label:hover .floating_help,
+label:focus-within .floating_help {
 	opacity: 1;
 	padding: 0.5rem;
 	border-radius: 5px;
@@ -115,9 +122,4 @@
 }
 .valuation_results button {
 	margin: 1rem;
-}
-
-.main_infos {
-	display: flex;
-	justify-content: space-around;
 }
