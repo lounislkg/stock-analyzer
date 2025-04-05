@@ -256,3 +256,144 @@ export interface CashFlowStatement {
 	link: string; // Link to the SEC filing index
 	finalLink: string; // Direct link to the SEC report
 }
+
+
+export interface metric {
+	metric: {
+		"10DayAverageTradingVolume": number;
+		"13WeekPriceReturnDaily": number;
+		"26WeekPriceReturnDaily": number;
+		"3MonthADReturnStd": number;
+		"3MonthAverageTradingVolume": number;
+		"52WeekHigh": number;
+		"52WeekHighDate": string;
+		"52WeekLow": number;
+		"52WeekLowDate": string;
+		"52WeekPriceReturnDaily": number;
+		"5DayPriceReturnDaily": number;
+		assetTurnoverAnnual: number;
+		assetTurnoverTTM: number;
+		beta: number;
+		bookValuePerShareAnnual: number;
+		bookValuePerShareQuarterly: number;
+		bookValueShareGrowth5Y: number;
+		capexCagr5Y: number;
+		cashFlowPerShareAnnual: number;
+		cashFlowPerShareQuarterly: number;
+		cashFlowPerShareTTM: number;
+		cashPerSharePerShareAnnual: number;
+		cashPerSharePerShareQuarterly: number;
+		currentDividendYieldTTM: number;
+		currentEvFreeCashFlowAnnual: number;
+		currentEvFreeCashFlowTTM: number;
+		currentRatioAnnual: number;
+		currentRatioQuarterly: number;
+		dividendGrowthRate5Y: number;
+		dividendPerShareAnnual: number;
+		dividendPerShareTTM: number;
+		dividendYieldIndicatedAnnual: number;
+		ebitdPerShareAnnual: number;
+		ebitdPerShareTTM: number;
+		ebitdaCagr5Y: number;
+		ebitdaInterimCagr5Y: number;
+		enterpriseValue: number;
+		epsAnnual: number;
+		epsBasicExclExtraItemsAnnual: number;
+		epsBasicExclExtraItemsTTM: number;
+		epsExclExtraItemsAnnual: number;
+		epsExclExtraItemsTTM: number;
+		epsGrowth3Y: number;
+		epsGrowth5Y: number;
+		epsGrowthQuarterlyYoy: number | null;
+		epsGrowthTTMYoy: number | null;
+		epsInclExtraItemsAnnual: number;
+		epsInclExtraItemsTTM: number;
+		epsNormalizedAnnual: number;
+		epsTTM: number;
+		focfCagr5Y: number;
+		longTermDebtEquityAnnual: number | null;
+		longTermDebtEquityQuarterly: number | null;
+		marketCapitalization: number;
+		monthToDatePriceReturnDaily: number;
+		netIncomeEmployeeAnnual: number;
+		netIncomeEmployeeTTM: number;
+		netInterestCoverageAnnual: number;
+		netInterestCoverageTTM: number;
+		netMarginGrowth5Y: number;
+		netProfitMargin5Y: number;
+		netProfitMarginAnnual: number;
+		netProfitMarginTTM: number;
+		operatingMargin5Y: number;
+		operatingMarginAnnual: number;
+		operatingMarginTTM: number;
+		payoutRatioAnnual: number;
+		payoutRatioTTM: number;
+		pbAnnual: number;
+		pbQuarterly: number;
+		pcfShareAnnual: number;
+		pcfShareTTM: number;
+		peAnnual: number;
+		peBasicExclExtraTTM: number;
+		peExclExtraAnnual: number;
+		peExclExtraTTM: number;
+		peInclExtraTTM: number;
+		peNormalizedAnnual: number;
+		peTTM: number;
+		pfcfShareAnnual: number;
+		pfcfShareTTM: number;
+		pretaxMargin5Y: number;
+		pretaxMarginAnnual: number;
+		pretaxMarginTTM: number;
+		priceRelativeToSP50013Week: number;
+		priceRelativeToSP50026Week: number;
+		priceRelativeToSP5004Week: number;
+		priceRelativeToSP50052Week: number;
+		priceRelativeToSP500Ytd: number;
+		psAnnual: number;
+		psTTM: number;
+		ptbvAnnual: number;
+		ptbvQuarterly: number;
+		quickRatioAnnual: number;
+		quickRatioQuarterly: number;
+		receivablesTurnoverAnnual: number;
+		receivablesTurnoverTTM: number;
+		revenueEmployeeAnnual: number;
+		revenueEmployeeTTM: number;
+		revenueGrowth3Y: number;
+		revenueGrowth5Y: number;
+		revenueGrowthQuarterlyYoy: number;
+		revenueGrowthTTMYoy: number;
+		revenuePerShareAnnual: number;
+		revenuePerShareTTM: number;
+		revenueShareGrowth5Y: number;
+		roa5Y: number;
+		roaRfy: number;
+		roaTTM: number;
+		roe5Y: number;
+		roeRfy: number;
+		roeTTM: number;
+		roi5Y: number;
+		roiAnnual: number;
+		roiTTM: number;
+		tangibleBookValuePerShareAnnual: number;
+		tangibleBookValuePerShareQuarterly: number;
+		tbvCagr5Y: number;
+		totalDebtTotalEquityAnnual: number;
+		totalDebtTotalEquityQuarterly: number;
+		yearToDatePriceReturnDaily: number;
+	},
+	metricType: string;
+	series: {
+		annual?: {
+			bookValue?: { period: string; v: number }[];
+			cashRatio?: { period: string; v: number }[];
+			// Ajouter d'autres métriques ici
+		};
+		quarterly?: {
+			bookValue?: { period: string; v: number }[];
+			cashRatio?: { period: string; v: number }[];
+			// Ajouter d'autres métriques ici
+		};
+	};
+
+}

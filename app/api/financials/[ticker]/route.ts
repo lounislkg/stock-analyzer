@@ -16,6 +16,7 @@ export async function GET(request: Request, context: { params: Params }) {
 		`https://financialmodelingprep.com/api/v3/cash-flow-statement/${ticker}?apikey=${api_key}`,
 		`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${finnhub_api_key}`,
 		`https://finnhub.io/api/v1/stock/profile2?symbol=${ticker}&token=${finnhub_api_key}`,
+		`https://finnhub.io/api/v1/stock/metric?symbol=${ticker}&metric=all&token=${api_key}`,
 	];
 
 	const responses = await Promise.all(urls.map((url) => fetch(url)));

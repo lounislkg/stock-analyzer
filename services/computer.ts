@@ -108,7 +108,9 @@ export const computeRatios = async (
 		payoutRatios.push(payoutRatio);
 	}
 	/* Yield */
-	const currentYield = data[2][0].dividendsPaid / data[4].marketCapitalization;
+	console.log("market cap : ",data[4].marketCapitalization);
+	console.log("dividend paid : ",data[2][0].dividendsPaid);
+	const currentYield =Math.round((-data[2][0].dividendsPaid / (data[4].marketCapitalization*1000))*100)/100;
 	/* Net Debt / FCF */
 	const netDebtFCF =
 		Math.round((data[1][0].netDebt / data[2][0].freeCashFlow) * 100) / 100;

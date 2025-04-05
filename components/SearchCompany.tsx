@@ -41,7 +41,7 @@ export default function SearchCompany() {
 			<input
 				type="text"
 				value={ticker}
-				onChange={(e) => setTicker(e.target.value)}
+				onChange={(e) => setTicker(e.target.value.toUpperCase())}
 				placeholder="Entrez un ticker"
 				className={styles.searchInput}
 			/>
